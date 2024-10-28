@@ -1,0 +1,45 @@
+#include <zmk/keymap.h>
+#include <zmk/keys.h>
+
+#define _BASE 0
+#define _BT 1
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer = &base;
+    };
+
+    base: base {
+        bindings = <
+            &kp DEL &kp KP_SLASH &kp KP_ASTERISK &kp KP_MINUS
+            &kp KP_7 &kp KP_8 &kp KP_9 &kp KP_PLUS
+            &kp KP_4 &kp KP_5 &kp KP_6
+            &kp KP_1 &kp KP_2 &kp KP_3 &kp KP_ENTER
+            &kp KP_0 &kp KP_DOT       
+        >;
+    };
+
+    bt: bt {
+        bindings = <
+            &bt BT_CLR &kp BOOT  &none &bt BT_CLR_All
+            &none &none &none &none &none
+            &none &none &none &none 
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none
+            &none &none
+        >;
+    };
+};
+
+/* Key bindings for entering Bluetooth layer */
+&combos {
+    combo_bt {
+        timeout-ms = <50>;
+        key-positions = <1 4>;
+        bindings = <&sl _BT>;
+    };
+};
+
+/* Ensure unused keys are defined */
+&none;

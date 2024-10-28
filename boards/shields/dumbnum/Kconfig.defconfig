@@ -1,0 +1,6 @@
+if SHIELD_DUMBNUM
+
+config ZMK_KEYBOARD_NAME
+    default "Dumb Numpad"
+
+endif
