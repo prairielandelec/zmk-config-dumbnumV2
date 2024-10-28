@@ -7,7 +7,6 @@
 / {
     keymap {
         compatible = "zmk,keymap";
-
         default_layer = &base;
     };
 
@@ -40,6 +39,3 @@
         bindings = <&sl _BT>;
     };
 };
-
-/* Ensure unused keys are defined */
-&none;
