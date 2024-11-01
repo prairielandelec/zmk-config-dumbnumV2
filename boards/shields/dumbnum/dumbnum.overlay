@@ -5,6 +5,7 @@
     chosen {
         zmk,kscan = &default_kscan;
         zmk,matrix-transform = &default_transform;
+        zmk,underglow = &led_strip;
     };
 
     default_kscan: kscan {
