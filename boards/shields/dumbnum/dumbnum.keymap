@@ -1,10 +1,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/rgb.h>
 
 
 #define _BASE 0
 #define _BT 1
+#define _RGB 2
 
 / {
     combos {
@@ -13,6 +15,12 @@
             timeout-ms = <50>;
             key-positions = <0 3>;
             bindings = <&sl _BT>;
+        };
+
+        combo_rgb {
+            timeout-ms = <50>;
+            key-positions = <0 2>;
+            bindings = <&to _RGB>;
         };
     };
 
@@ -34,6 +42,16 @@
                 &none &none &none &none
                 &none &none &none
                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none
+                &none &none
+            >;
+        };
+
+        rgb_layer {
+            bindings = <
+                &none &none &to _BASE &rgb_ug RGB_EFF
+                &none &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none
+                &none &rgb_ug RGB_SAD &rgb_ug RGB_SAI
+                &rgb_ug RGB_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &none
                 &none &none
             >;
         };
